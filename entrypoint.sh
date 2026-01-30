@@ -11,7 +11,5 @@ fi
 
 echo "nameserver 8.8.8.8" > ./rootfs/etc/resolv.conf
 
-# Lệnh khởi chạy thông qua PRoot
-# -0: Giả lập quyền root cho user container
-# -b /dev, -b /proc: Liên kết các tài nguyên hệ thống
+
 exec proot -r ./rootfs -0 -w / -b /dev -b /proc -b /sys /usr/bin/env -i HOME=/root TERM=$TERM PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin /bin/bash
